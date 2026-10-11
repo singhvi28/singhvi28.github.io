@@ -58,7 +58,7 @@ export const Badges: React.FC = () => {
                   className="w-2 h-2 rounded-full"
                   style={{ backgroundColor: badge.color }}
                 />
-                <span>PASS #{idx + 1 < 10 ? `00${idx + 1}` : `0${idx + 1}`} / 005</span>
+                <span>PASS #{idx + 1 < 10 ? `00${idx + 1}` : `0${idx + 1}`} / {BADGES_DATA.length < 10 ? `00${BADGES_DATA.length}` : `0${BADGES_DATA.length}`}</span>
               </div>
 
               {/* Icon / Emblem */}

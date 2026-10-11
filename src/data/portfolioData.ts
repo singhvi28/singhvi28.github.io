@@ -83,8 +83,7 @@ export const EXPERIENCE_DATA: ExperienceRow[] = [
     badge: 'NATIONAL INSTITUTE OF TECHNOLOGY',
     highlights: [
       'Cleared JEE Main with 99.33 Percentile (All India Rank 7889) out of over 1,000,000 candidates nationwide.',
-      'Qualified JEE Advanced with All India Rank 12154.',
-      'Awarded 2nd Runner-Up out of 70+ participating teams in the 404 Tech Quiz conducted during Culrav-Avishkar tech festival.'
+      'Qualified JEE Advanced with All India Rank 12154.'
     ],
     stamp: {
       color: '#FF2E93',
@@ -311,16 +310,5 @@ export const BADGES_DATA: FlightBadge[] = [
     date: '2023',
     color: '#00FF88',
     link: 'https://drive.google.com/file/d/1DkujExsM16R5FsV7NU-Kxk_aeUxpZvNu/view'
-  },
-  {
-    id: 'culrav-quiz',
-    code: 'ASTRO-05',
-    title: '404 Tech Quiz Runner-Up',
-    platform: 'Culrav-Avishkar',
-    rank: '2nd Runner-Up (70+ Teams)',
-    metric: 'MNNIT Annual Technology & Systems Challenge',
-    date: '2024',
-    color: '#FFB800',
-    link: 'https://drive.google.com/file/d/1OpgW4rKZmXNQeZJN5O6JFC1y5-OJmrK3/view'
   }
 ];
