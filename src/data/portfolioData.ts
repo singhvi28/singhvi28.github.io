@@ -101,7 +101,7 @@ export const PROJECTS_DATA: ProjectModule[] = [
     code: 'MOD-01',
     title: 'COLLAB-DOCS',
     subtitle: 'Real-Time Document Engine over QUIC & CRDTs',
-    summary: 'A high-throughput collaborative workspace built with FastAPI, WebTransport (QUIC), and Yjs CRDTs for conflict-free state resolution under network turbulence.',
+    summary: 'High-throughput collaborative workspace built with FastAPI, WebTransport (QUIC), and Yjs CRDTs for conflict-free state resolution under network turbulence.',
     badge: 'QUIC / CRDT',
     tags: ['FastAPI', 'WebTransport (QUIC)', 'Yjs CRDTs', 'Redis Pub/Sub', 'Docker', 'NGINX'],
     deckBg: '#091C2E',
@@ -118,20 +118,102 @@ export const PROJECTS_DATA: ProjectModule[] = [
       { label: 'Transport Protocol', value: 'QUIC / WebTransport' },
       { label: 'Conflict Engine', value: 'Yjs State Vectors' },
       { label: 'Convergence Delay', value: '< 15 ms' },
-      { label: 'Coordination', value: 'Redis WAL + Compaction' }
+      { label: 'Coordination', value: 'Redis WAL + SET NX' }
     ],
-    githubUrl: 'https://github.com/singhvi28/google-docs-clone/tree/main',
+    githubUrl: 'https://github.com/singhvi28/google-docs-clone',
     demoCommand: 'docker compose up -d && curl -I http://localhost:8000/health'
   },
   {
-    id: 'agentic-pipeline',
+    id: 'SedrisDB',
     code: 'MOD-02',
+    title: 'SEDRIS-DB',
+    subtitle: 'In-Memory Key-Value & Pub/Sub Engine in C++17',
+    summary: 'Single-threaded, event-driven in-memory key-value data store and real-time Pub/Sub engine in C++17 following Redis architectural principles.',
+    badge: 'C++17 REDIS REACTOR',
+    tags: ['C++17', 'Linux epoll', 'POSIX Sockets', 'RESP Protocol', 'Flat Hash Map', 'Slab Allocator'],
+    deckBg: '#1F1706',
+    accentColor: '#FFB800',
+    problem: 'Relational and disk-backed storage introduce query parsing and disk I/O latency for ephemeral telemetry caches, while multi-threaded servers suffer high context-switching overhead under thousands of client connections.',
+    architecture: [
+      'Single-threaded event-driven networking reactor using POSIX raw sockets and Linux epoll I/O multiplexing with edge-triggered readiness.',
+      'State-machine-based parser for Redis Serialization Protocol (RESP), natively resolving TCP stream packet fragmentation and partial reads.',
+      'Primary key index implemented as a custom cache-friendly flat hash map (open addressing with linear probing).',
+      'Slab free-list node pool allocator for SedrisNode instances, eliminating malloc fragmentation and latency spikes during key churn.',
+      'O(1) LRU eviction engine utilizing a hybrid Flat Hash Map + Doubly Linked List with TTL expiry timers.'
+    ],
+    benchmarks: 'Sub-millisecond P99 latency; handles thousands of concurrent persistent client TCP connections with zero context-switching overhead.',
+    metrics: [
+      { label: 'Concurrency Model', value: 'Single-Thread epoll' },
+      { label: 'Wire Protocol', value: 'RESP Compatible' },
+      { label: 'Memory Allocation', value: 'Slab Free-List Pool' },
+      { label: 'LRU Complexity', value: 'O(1) Hash + DList' }
+    ],
+    githubUrl: 'https://github.com/singhvi28/SedrisDB',
+    demoCommand: 'make && ./build/sedris-server --port 6379'
+  },
+  {
+    id: 'l7-load-balancer',
+    code: 'MOD-03',
+    title: 'L7-REACTOR',
+    subtitle: 'Pure Python HTTP Reverse Proxy with Linux epoll',
+    summary: 'High-performance Layer 7 HTTP reverse proxy built from scratch in pure Python standard library with zero external dependencies using raw Linux sockets.',
+    badge: 'EPOLL REACTOR',
+    tags: ['Python', 'Linux epoll', 'Raw Sockets', 'HTTP/1.1 Wire Parser', 'Min-Heap', 'Round-Robin'],
+    deckBg: '#061D13',
+    accentColor: '#00FF88',
+    problem: 'Standard Python WSGI/ASGI gateways add substantial dependency overhead and thread-per-connection bloat when all that is needed is an event-driven reverse proxy routing raw TCP streams.',
+    architecture: [
+      'Event-driven asynchronous reactor using Linux epoll via Python selectors to multiplex thousands of concurrent non-blocking TCP sockets.',
+      'Handcrafted per-connection finite state machine and HTTP/1.1 wire parser handling TCP packet fragmentation, Content-Length, chunked Transfer-Encoding, and X-Forwarded-For injection.',
+      'Pluggable routing algorithms via Round-Robin and Least-Connections backed by an O(log N) min-heap.',
+      'Active background health checks daemon with exponential backoff and idempotent request retries on backend connect failures.'
+    ],
+    benchmarks: '3,250+ requests/sec sustained throughput with 0% failure rate across multi-process socket distribution bypassing GIL bottlenecks.',
+    metrics: [
+      { label: 'Throughput', value: '3,250+ req/s' },
+      { label: 'Failure Rate', value: '0.00% Zero Drops' },
+      { label: 'Dependencies', value: '0 (Pure Python)' },
+      { label: 'Multiplexer', value: 'Linux epoll' }
+    ],
+    githubUrl: 'https://github.com/singhvi28/l7-load-balancer',
+    demoCommand: 'python3 -m proxy.main --workers 4 --algorithm least-conn --port 8080'
+  },
+  {
+    id: 'agentic-diagnostic-tool',
+    code: 'MOD-04',
+    title: 'AGENTIC-SRE',
+    subtitle: 'Autonomous Root-Cause Analysis with GraphRAG',
+    summary: 'Autonomous site reliability and code remediation engine for distributed applications combining code topology knowledge graphs with semantic vector search.',
+    badge: 'GRAPHRAG REMEDIATION',
+    tags: ['LangGraph', 'Neo4j', 'PostgreSQL', 'pgvector', 'FastMCP', 'Python AST'],
+    deckBg: '#170A24',
+    accentColor: '#A855F7',
+    problem: 'Diagnosing complex distributed failures requires engineers to manually cross-correlate stack traces, unstructured error logs, and multi-file code call-graphs, significantly delaying MTTR.',
+    architecture: [
+      'Code topology ingestion into Neo4j graph database mapping class hierarchies, route handlers, imports, and cross-module caller dependencies.',
+      'Vector memory layer backed by PostgreSQL + pgvector storing past remediation sessions, patch history, and semantic log embeddings.',
+      'FastMCP tool server exposing sandboxed AST inspection, syntax lint checks, test suite runners, and isolated code reading.',
+      'LangGraph cyclical orchestration loop: Parse → Retrieve (GraphRAG) → Diagnose/Patch → Test Suite Verification → Rollback on Failure.'
+    ],
+    benchmarks: 'Dramatically cuts MTTR by autonomously synthesizing, syntax-verifying, and applying unified diff patches that pass test suites on first attempt.',
+    metrics: [
+      { label: 'Knowledge Graph', value: 'Neo4j Code Topology' },
+      { label: 'Vector Memory', value: 'PostgreSQL + pgvector' },
+      { label: 'Orchestration', value: 'LangGraph State Machine' },
+      { label: 'Tool Protocol', value: 'FastMCP Server' }
+    ],
+    githubUrl: 'https://github.com/singhvi28/agentic-diagnostic-tool',
+    demoCommand: 'diagnostic-agent --log logs/app_errors.log --apply'
+  },
+  {
+    id: 'agentic-pipeline',
+    code: 'MOD-05',
     title: 'AGENTIC CONTENT ENGINE',
     subtitle: 'Self-Correcting Autonomous Pipeline with Contextual RL',
     summary: 'Multi-platform content orchestration engine featuring recursive agent loops (Plan → Draft → Critique → Revise) and Contextual Multi-Arm Bandit optimization.',
-    badge: 'AGENTIC RL',
+    badge: 'THOMPSON BANDIT',
     tags: ['FastAPI', 'Redis', 'ARQ Workers', 'Thompson Sampling', 'LLM Critics', 'PostgreSQL'],
-    deckBg: '#1E1228',
+    deckBg: '#1F0B18',
     accentColor: '#FF2E93',
     problem: 'Single-shot LLM prompts hallucinate formatting rules and decay into generic copy without self-reflection, while fixed templates fail to adapt to engagement feedback across different distribution channels.',
     architecture: [
@@ -151,57 +233,31 @@ export const PROJECTS_DATA: ProjectModule[] = [
     demoCommand: 'python -m pipeline.worker --concurrency 4'
   },
   {
-    id: 'l7-load-balancer',
-    code: 'MOD-03',
-    title: 'L7-REACTOR',
-    subtitle: 'Pure Python HTTP Reverse Proxy with Linux epoll',
-    summary: 'High-performance Layer 7 HTTP reverse proxy built from scratch in pure Python with zero third-party dependencies using Linux raw sockets.',
-    badge: 'EPOLL REACTOR',
-    tags: ['Python', 'Linux epoll', 'Raw Sockets', 'HTTP/1.1 Wire Parser', 'Min-Heap', 'Round-Robin'],
-    deckBg: '#1C1A0E',
-    accentColor: '#FFB800',
-    problem: 'Standard Python WSGI/ASGI gateways add substantial dependency overhead and thread-per-connection bloat when all that is needed is an event-driven, zero-dependency reverse proxy routing raw TCP streams.',
+    id: 'cf-clone',
+    code: 'MOD-06',
+    title: 'YUKTICODE JUDGE',
+    subtitle: 'Sandboxed Online Judge & Real-Time Contest Platform',
+    summary: 'Full-stack competitive programming judge and contest platform featuring secure sandboxed Docker execution, task queues, and live WebSocket verdict streaming.',
+    badge: 'SANDBOXED JUDGE',
+    tags: ['React', 'FastAPI', 'RabbitMQ', 'Docker', 'PostgreSQL', 'Redis', 'WebSockets'],
+    deckBg: '#071526',
+    accentColor: '#38BDF8',
+    problem: 'Executing untrusted user-submitted code in competitive programming contests demands sub-second execution, strict hardware isolation to prevent fork bombs and malicious system calls, and real-time verdict delivery.',
     architecture: [
-      'Event-driven asynchronous reactor using Linux epoll via Python selectors to multiplex thousands of concurrent TCP sockets on a non-blocking loop.',
-      'Handcrafted per-connection finite state machine and HTTP/1.1 wire parser handling TCP packet fragmentation, Content-Length, chunked Transfer-Encoding, and X-Forwarded-For injection.',
-      'Pluggable routing algorithms via Round-Robin and Least-Connections backed by an O(log N) min-heap.',
-      'Active background health checks daemon with exponential backoff and idempotent request retries on backend connect failures.'
+      'Full-stack competitive programming engine powered by React (frontend), FastAPI (REST API), PostgreSQL (persistence), and Redis (caching & session state).',
+      'Asynchronous task distribution pipeline using RabbitMQ with dedicated worker queues separating interactive runs from formal contest submissions.',
+      'Sandboxed code execution engine running inside ephemeral, unprivileged Docker containers with Linux cgroups enforcing hard CPU time limits and memory boundaries.',
+      'Real-time WebSocket event streaming broadcasting instantaneous compilation, test-case verdicts (AC/WA/TLE/MLE), and live contest leaderboard rankings.'
     ],
-    benchmarks: '3,250+ requests/sec sustained throughput with 0% failure rate across multi-process socket distribution bypassing GIL bottlenecks.',
+    benchmarks: 'Safely executes untrusted C++ and Python submissions in sub-500ms cycles with 100% process isolation.',
     metrics: [
-      { label: 'Throughput', value: '3,250+ req/s' },
-      { label: 'Failure Rate', value: '0.00% Zero Drops' },
-      { label: 'Dependencies', value: '0 (Pure Python)' },
-      { label: 'Multiplexer', value: 'Linux epoll' }
+      { label: 'Sandbox Engine', value: 'Docker + Linux cgroups' },
+      { label: 'Message Queue', value: 'RabbitMQ Workers' },
+      { label: 'Live Telemetry', value: 'WebSocket Verdict Stream' },
+      { label: 'Core Framework', value: 'FastAPI + React' }
     ],
-    githubUrl: 'https://github.com/singhvi28/l7-load-balancer',
-    demoCommand: 'python3 -m proxy.main --workers 4 --algorithm least-conn --port 8080'
-  },
-  {
-    id: 'algo-suite',
-    code: 'MOD-04',
-    title: 'CONTEST-MIRROR',
-    subtitle: 'Virtual Contest Simulator & Telemetry Engine',
-    summary: 'Curated curriculum, stress-testing harnesses, and virtual contest mirrors tracking algorithmic progression across Codeforces and LeetCode.',
-    badge: 'ALGO SUITE',
-    tags: ['C++', 'Python', 'Competitive Programming', 'Stress Testing', 'Monotonic Stacks', 'DP'],
-    deckBg: '#0F1F18',
-    accentColor: '#00FF88',
-    problem: 'Solving hard competitive programming problems in contest environments requires stress testing generators, deterministic verification against brute-force oracles, and edge-case fuzzing.',
-    architecture: [
-      'Built custom stress-testing harnesses generating random corner-case graphs, trees, and numeric inputs to find counterexamples against brute-force models in sub-second cycles.',
-      'Implemented optimized C++ and Python data structures: Fenwick Trees, Segment Trees with Lazy Propagation, Monotonic Stacks, and Disjoint Set Unions.',
-      'Automated leaderboard parsing and personal telemetry charts mapping rating curves across 1,500+ solved problems.'
-    ],
-    benchmarks: 'Guardian 2158 rank on LeetCode (Top 1.15%) and Expert on Codeforces (1675).',
-    metrics: [
-      { label: 'LeetCode Rating', value: '2158 (Guardian)' },
-      { label: 'Codeforces Rating', value: '1675 (Expert)' },
-      { label: 'Problems Solved', value: '1,500+' },
-      { label: 'Contest Best', value: 'Global Rank 113' }
-    ],
-    githubUrl: 'https://github.com/singhvi28/competitive-programming',
-    demoCommand: 'python3 stress1.py --generator tree --oracle brute.cpp --solution sol.cpp'
+    githubUrl: 'https://github.com/singhvi28/yukticode',
+    demoCommand: 'docker compose up -d && python worker.py --concurrency 8'
   }
 ];
 

@@ -51,11 +51,11 @@ export const Projects: React.FC = () => {
           [projectId]:
             '✓ QUIC handshake completed in 1.8ms\n✓ Connected 200 editors over WebTransport\n✓ Yjs CRDT state vectors merged without conflict\n✓ Redis WAL compacted 14,200 deltas to disk (SET NX)'
         }));
-      } else if (projectId === 'agentic-pipeline') {
+      } else if (projectId === 'SedrisDB') {
         setSimOutput((prev) => ({
           ...prev,
           [projectId]:
-            '✓ ARQ worker picked up task #8912\n✓ Multi-Arm Bandit selected Arm 14 (Beta-Bernoulli)\n✓ Flesch readability score: 68.4 (Target band passed)\n✓ Critique passed with 0 constraint violations'
+            '✓ Linux epoll reactor online on port 6379\n✓ Custom RESP parser zero-copy read: 120,000 ops/sec\n✓ Flat hash map + Slab node pool allocator active\n✓ O(1) LRU eviction verified: 0 memory fragmentation'
         }));
       } else if (projectId === 'l7-load-balancer') {
         setSimOutput((prev) => ({
@@ -63,11 +63,29 @@ export const Projects: React.FC = () => {
           [projectId]:
             '✓ Linux epoll socket pool online (4 workers)\n✓ HTTP/1.1 wire parser zero-copy parse: 3,250 req/s\n✓ Health check: backend-01: OK, backend-02: OK\n✓ 0 drops across 100,000 requests'
         }));
+      } else if (projectId === 'agentic-diagnostic-tool') {
+        setSimOutput((prev) => ({
+          ...prev,
+          [projectId]:
+            '✓ Neo4j GraphRAG topology retrieved: 42 call sites\n✓ pgvector semantic error trace matched: Session #204\n✓ FastMCP AST inspection validated patch syntax\n✓ Automated test suite PASSED: unified diff generated'
+        }));
+      } else if (projectId === 'agentic-pipeline') {
+        setSimOutput((prev) => ({
+          ...prev,
+          [projectId]:
+            '✓ ARQ worker picked up task #8912\n✓ Multi-Arm Bandit selected Arm 14 (Beta-Bernoulli)\n✓ Flesch readability score: 68.4 (Target band passed)\n✓ Critique passed with 0 constraint violations'
+        }));
+      } else if (projectId === 'cf-clone') {
+        setSimOutput((prev) => ({
+          ...prev,
+          [projectId]:
+            '✓ RabbitMQ dispatch to submit_worker pool\n✓ Docker sandbox spawned (memory: 256MB, CPU: 1.0)\n✓ Ran 40 hidden test cases: 0.08s execution time\n✓ WebSocket broadcast: Verdict ACCEPTED (AC)'
+        }));
       } else {
         setSimOutput((prev) => ({
           ...prev,
           [projectId]:
-            '✓ Stress-testing generator created 10,000 random trees\n✓ Solved DP Monotonic Stack in 12ms\n✓ Rating test verified: Guardian 2158 / Expert 1675'
+            '✓ Test harness completed successfully\n✓ Benchmarks verified against SLA'
         }));
       }
     }, 800);
