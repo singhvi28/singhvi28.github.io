@@ -103,11 +103,6 @@ export const Experience: React.FC = () => {
                     <td className="py-8 pr-6 font-mono text-sm text-slate-300">
                       <div className="font-bold flex items-center gap-2">
                         {row.period}
-                        {row.isCurrent && (
-                          <span className="inline-block px-2 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/50 text-[10px] rounded uppercase font-bold animate-pulse">
-                            Active
-                          </span>
-                        )}
                       </div>
                     </td>
 
