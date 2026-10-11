@@ -10,7 +10,8 @@ import {
   Radio,
   Send,
   ExternalLink,
-  Code2
+  Code2,
+  Heart
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
@@ -311,8 +312,10 @@ export const Contact: React.FC = () => {
           <p className="text-slate-500">
             Zero 3D libraries: no three.js, no GSAP. Pure 2D SVG rig, Canvas starfield, and requestAnimationFrame loop. Still Lighthouse 99+.
           </p>
-          <div className="text-cyan-400 font-bold mt-2">
-            © 2026 Akshit Singhvi • national institute of technology allahabad
+          <div className="text-cyan-400 font-bold mt-2 flex items-center justify-center gap-1.5 font-mono text-xs">
+            <span>Made with</span>
+            <Heart size={14} className="text-pink-500 fill-pink-500 animate-pulse" aria-label="heart" />
+            <span>by Akshit Singhvi</span>
           </div>
         </div>
       </div>
