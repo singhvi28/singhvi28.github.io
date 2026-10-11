@@ -83,9 +83,8 @@ export const Experience: React.FC = () => {
           <table className="w-full text-left border-collapse min-w-[700px]">
             <thead>
               <tr className="border-b-2 border-slate-800 font-mono text-xs text-slate-400 uppercase tracking-widest">
-                <th className="py-4 pr-6 w-[22%]">Epoch / When</th>
-                <th className="py-4 px-6 w-[28%]">Sector / Station</th>
-                <th className="py-4 pl-6 w-[50%]">Payload Deployed</th>
+                <th className="py-4 pr-6 w-[32%]">Sector / Station</th>
+                <th className="py-4 pl-6 w-[68%]">Payload Deployed</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800/80">
@@ -99,15 +98,8 @@ export const Experience: React.FC = () => {
                     data-row-index={idx}
                     className="experience-table-row group hover:bg-[#0E1528]/60 transition-colors align-top"
                   >
-                    {/* Period */}
-                    <td className="py-8 pr-6 font-mono text-sm text-slate-300">
-                      <div className="font-bold flex items-center gap-2">
-                        {row.period}
-                      </div>
-                    </td>
-
                     {/* Role & Org */}
-                    <td className="py-8 px-6">
+                    <td className="py-8 pr-6">
                       <div className="font-sans font-bold text-lg text-white group-hover:text-cyan-300 transition-colors">
                         {row.role}
                       </div>
