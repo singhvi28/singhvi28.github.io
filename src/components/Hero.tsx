@@ -92,9 +92,9 @@ export const Hero: React.FC<HeroProps> = ({ onScrollTo }) => {
         {/* Intro Mission Briefing */}
         <div className="max-w-2xl mb-8">
           <p className="text-slate-200 text-lg sm:text-xl leading-relaxed font-sans font-medium">
-            I architect resilient distributed systems and low-level network engines:{' '}
+            I architect resilient distributed systems, high-performance network engines, and{' '}
             <strong className="text-cyan-300 font-bold underline decoration-cyan-400/50 underline-offset-4">
-              event-driven epoll proxies, QUIC/CRDT synchronization, and autonomous agent loops
+              scalable backend architectures
             </strong>{' '}
             that thrive under mission-critical loads. Guardian at LeetCode{' '}
             <span className="text-amber-400 font-bold">(2158, Top 1.15%)</span> and Expert on Codeforces.
@@ -151,9 +151,9 @@ export const Hero: React.FC<HeroProps> = ({ onScrollTo }) => {
         {/* Launchpad Platform Telemetry Dock */}
         <div className="mt-12 pt-6 border-t border-cyan-500/20 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
           <div className="p-3 bg-[#0B0F19]/80 border border-slate-800 rounded">
-            <div className="text-slate-400 text-[10px] uppercase">L7 Epoll Proxy</div>
-            <div className="text-cyan-300 text-sm font-bold mt-0.5">3,250+ req/s</div>
-            <div className="text-emerald-400 text-[10px]">0% Drop Rate</div>
+            <div className="text-slate-400 text-[10px] uppercase">Distributed Systems</div>
+            <div className="text-cyan-300 text-sm font-bold mt-0.5">High Concurrency</div>
+            <div className="text-emerald-400 text-[10px]">Zero Drop Rate</div>
           </div>
 
           <div className="p-3 bg-[#0B0F19]/80 border border-slate-800 rounded">
@@ -165,7 +165,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollTo }) => {
           <div className="p-3 bg-[#0B0F19]/80 border border-slate-800 rounded">
             <div className="text-slate-400 text-[10px] uppercase">Codeforces</div>
             <div className="text-cyan-300 text-sm font-bold mt-0.5">1675 Expert</div>
-            <div className="text-slate-400 text-[10px]">Div 1+2 Solved</div>
+            <div className="text-slate-400 text-[10px]">Algorithmic R&D</div>
           </div>
 
           <div className="p-3 bg-[#0B0F19]/80 border border-slate-800 rounded">

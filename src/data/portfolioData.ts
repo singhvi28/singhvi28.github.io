@@ -21,7 +21,7 @@ export const PERSONAL_INFO = {
     'Algorithmic Optimization',
     'Agentic AI'
   ],
-  bio: 'I architect resilient distributed systems and low-level network engines: event-driven epoll proxies, QUIC/CRDT synchronization, and autonomous agent loops that thrive under mission-critical loads. Guardian at LeetCode (2158, Top 1.15%) and Expert on Codeforces.'
+  bio: 'I architect resilient distributed systems, high-performance network engines, and scalable backend platforms that thrive under mission-critical loads. Guardian at LeetCode (2158, Top 1.15%) and Expert on Codeforces.'
 };
 
 export const CHECKPOINTS = [

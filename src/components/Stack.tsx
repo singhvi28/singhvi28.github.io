@@ -142,33 +142,31 @@ export const Stack: React.FC = () => {
       {/* Live Continuous Propulsion Marquee Ticker */}
       <div className="mt-16 py-3 bg-black border-y-2 border-slate-800 overflow-hidden font-mono text-xs font-bold uppercase tracking-widest text-cyan-400 select-none">
         <div className="marquee-content whitespace-nowrap flex gap-8 animate-marquee">
-          <span>⚡ PYTHON (450s)</span>
+          <span>⚡ DISTRIBUTED SYSTEMS</span>
           <span>•</span>
-          <span>LINUX EPOLL REACTOR (450s)</span>
+          <span>HIGH-CONCURRENCY BACKENDS</span>
           <span>•</span>
-          <span>FASTAPI ASYNC (450s)</span>
+          <span>LOW-LATENCY NETWORKING</span>
           <span>•</span>
-          <span>QUIC / WEBTRANSPORT (380s)</span>
+          <span>ASYNC ARCHITECTURES</span>
           <span>•</span>
-          <span>YJS CRDTS (380s)</span>
+          <span>EVENT-DRIVEN PROTOCOLS</span>
           <span>•</span>
-          <span>REDIS WAL LOCKS (450s)</span>
+          <span>ALGORITHMIC OPTIMIZATION</span>
           <span>•</span>
-          <span>THOMPSON BANDIT (380s)</span>
-          <span>•</span>
-          <span>DOCKER COMPOSE (450s)</span>
+          <span>CONTAINERIZATION & LINUX</span>
           <span>•</span>
           <span>LEETCODE GUARDIAN (2158)</span>
           <span>•</span>
           <span>CODEFORCES EXPERT (1675)</span>
           <span>•</span>
-          <span>PYTHON (450s)</span>
+          <span>DISTRIBUTED SYSTEMS</span>
           <span>•</span>
-          <span>LINUX EPOLL REACTOR (450s)</span>
+          <span>HIGH-CONCURRENCY BACKENDS</span>
           <span>•</span>
-          <span>FASTAPI ASYNC (450s)</span>
+          <span>LOW-LATENCY NETWORKING</span>
           <span>•</span>
-          <span>QUIC / WEBTRANSPORT (380s)</span>
+          <span>ASYNC ARCHITECTURES</span>
         </div>
       </div>
     </section>
