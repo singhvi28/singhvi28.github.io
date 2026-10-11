@@ -179,35 +179,8 @@ export const PROJECTS_DATA: ProjectModule[] = [
     demoCommand: 'python3 -m proxy.main --workers 4 --algorithm least-conn --port 8080'
   },
   {
-    id: 'agentic-diagnostic-tool',
-    code: 'MOD-04',
-    title: 'AGENTIC-SRE',
-    subtitle: 'Autonomous Root-Cause Analysis with GraphRAG',
-    summary: 'Autonomous site reliability and code remediation engine for distributed applications combining code topology knowledge graphs with semantic vector search.',
-    badge: 'GRAPHRAG REMEDIATION',
-    tags: ['LangGraph', 'Neo4j', 'PostgreSQL', 'pgvector', 'FastMCP', 'Python AST'],
-    deckBg: '#170A24',
-    accentColor: '#A855F7',
-    problem: 'Diagnosing complex distributed failures requires engineers to manually cross-correlate stack traces, unstructured error logs, and multi-file code call-graphs, significantly delaying MTTR.',
-    architecture: [
-      'Code topology ingestion into Neo4j graph database mapping class hierarchies, route handlers, imports, and cross-module caller dependencies.',
-      'Vector memory layer backed by PostgreSQL + pgvector storing past remediation sessions, patch history, and semantic log embeddings.',
-      'FastMCP tool server exposing sandboxed AST inspection, syntax lint checks, test suite runners, and isolated code reading.',
-      'LangGraph cyclical orchestration loop: Parse → Retrieve (GraphRAG) → Diagnose/Patch → Test Suite Verification → Rollback on Failure.'
-    ],
-    benchmarks: 'Dramatically cuts MTTR by autonomously synthesizing, syntax-verifying, and applying unified diff patches that pass test suites on first attempt.',
-    metrics: [
-      { label: 'Knowledge Graph', value: 'Neo4j Code Topology' },
-      { label: 'Vector Memory', value: 'PostgreSQL + pgvector' },
-      { label: 'Orchestration', value: 'LangGraph State Machine' },
-      { label: 'Tool Protocol', value: 'FastMCP Server' }
-    ],
-    githubUrl: 'https://github.com/singhvi28/agentic-diagnostic-tool',
-    demoCommand: 'diagnostic-agent --log logs/app_errors.log --apply'
-  },
-  {
     id: 'agentic-pipeline',
-    code: 'MOD-05',
+    code: 'MOD-04',
     title: 'AGENTIC CONTENT ENGINE',
     subtitle: 'Self-Correcting Autonomous Pipeline with Contextual RL',
     summary: 'Multi-platform content orchestration engine featuring recursive agent loops (Plan → Draft → Critique → Revise) and Contextual Multi-Arm Bandit optimization.',
@@ -234,7 +207,7 @@ export const PROJECTS_DATA: ProjectModule[] = [
   },
   {
     id: 'cf-clone',
-    code: 'MOD-06',
+    code: 'MOD-05',
     title: 'YUKTICODE JUDGE',
     subtitle: 'Sandboxed Online Judge & Real-Time Contest Platform',
     summary: 'Full-stack competitive programming judge and contest platform featuring secure sandboxed Docker execution, task queues, and live WebSocket verdict streaming.',

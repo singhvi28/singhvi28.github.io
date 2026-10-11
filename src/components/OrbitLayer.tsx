@@ -137,7 +137,7 @@ export const OrbitLayer: React.FC<OrbitLayerProps> = ({ activeSector, onNavigate
     if (isDragging) return 'MANEUVERING IN ZERO-G 🛸';
     if (scrollProgress < 0.05) return 'T-MINUS 0... READY TO LAUNCH 🚀';
     if (activeSector === 'experience') return 'SECTOR 01: LOGGING 3,250 REQ/S ⚡';
-    if (activeSector === 'projects') return 'SECTOR 02: 6 ORBITAL MODULES ONLINE 🛠️';
+    if (activeSector === 'projects') return 'SECTOR 02: 5 ORBITAL MODULES ONLINE 🛠️';
     if (activeSector === 'stack') return 'SECTOR 03: 450s Isp THRUSTERS ON 🔥';
     if (activeSector === 'badges') return 'SECTOR 04: LEETCODE GUARDIAN 2158 ⭐';
     if (activeSector === 'contact') return 'SECTOR 05: TOUCHDOWN ACHIEVED 🏆';

@@ -63,12 +63,6 @@ export const Projects: React.FC = () => {
           [projectId]:
             '✓ Linux epoll socket pool online (4 workers)\n✓ HTTP/1.1 wire parser zero-copy parse: 3,250 req/s\n✓ Health check: backend-01: OK, backend-02: OK\n✓ 0 drops across 100,000 requests'
         }));
-      } else if (projectId === 'agentic-diagnostic-tool') {
-        setSimOutput((prev) => ({
-          ...prev,
-          [projectId]:
-            '✓ Neo4j GraphRAG topology retrieved: 42 call sites\n✓ pgvector semantic error trace matched: Session #204\n✓ FastMCP AST inspection validated patch syntax\n✓ Automated test suite PASSED: unified diff generated'
-        }));
       } else if (projectId === 'agentic-pipeline') {
         setSimOutput((prev) => ({
           ...prev,
